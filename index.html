@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Everybody Edits
+		</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script>
+			var ee_inviteid = unescape( "");
+			var ee_quickinviteid= unescape("");
+			var iseecom = true;
+			var affiliate = location.search.replace("?a=","");
+		
+			function setPath(title, path) {
+    		if (window.history) {
+        	if (location.pathname + location.search == path) {
+            if (window.history.replaceState) {
+              window.history.replaceState({}, title, path);
+            }
+        	} else if (window.history.pushState) {
+            window.history.pushState({}, title, path);
+        	}
+    		}
+    		document.title = title;
+			}
+		</script>
+
+	</head>
+
+	<body>
+
+		<!--// ICONS //-->
+		<ul class="icons">
+			<li>
+				<a href="#" class="fa fa-facebook" style="background-color:#3B5998"></a>
+			</li>
+			<li>
+				<a href="#" class="fa fa-twitter" style="background-color:#55ACEE"></a>
+			</li>
+			<li>
+				<a href="#" class="fa fa-wordpress" style="background-color:#0087BE"></a>
+			</li>
+			<li>
+				<a href="#" class="fa fa-youtube-play" style="background-color:#DA3D34"></a>
+			</li>
+			<li>
+				<a href="#" class="fa fa-cogs" data-toggle="modal" data-target="#myModal" style="background-color:#232323"></a>
+			</li>
+		</ul>
+
+		<!--// SETTINGS //-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#ffffff">&times;</span></button>
+        		<h2 class="modal-title" id="myModalLabel">Site Settings</h2>
+      		</div>
+      		<div class="modal-body">
+      			<select id="bgSelection" name="bgSelection" onchange="changeBG()">
+      				<option value="null" style="display:none" disabled selected>
+      					Select Background
+      				</option>
+      				<option value="random">
+      					Random
+      				</option>
+      			</select>
+      			<br>
+      			<br>
+      			<input type="number" id="opSelection" step="0.05" max="1.00" min="0.00" value="0.5" onchange="changeOP()">
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-default" onclick="reset()">Reset</button>
+        		<button type="button" class="btn btn-primary" onclick="save()">Save changes</button>
+      		</div>
+    		</div>
+  		</div>
+		</div>
+
+		<!--// MAIN //-->
+		<div id="main" class="jumbotron background">
+			<div class="opacity">
+			</div>
+			<div class="container">
+				<img src="http://r.playerio.com/r/everybody-edits-su9rn58o40itdbnw69plyw/Everybody Edits Website/images/logo.png" height="80px">
+			</div>
+			<br>
+			<object id="ee" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="850px" height="500px">
+      	<param name="movie" value="http://r.playerio.com/r/everybody-edits-su9rn58o40itdbnw69plyw/freegame.swf">
+      	<param name="quality" value="high">
+      	<param name="bgcolor" value="#000000">
+      	<param name="play" value="true">
+      	<param name="loop" value="true">
+      	<param name="wmode" value="direct">
+      	<param name="scale" value="showall">
+      	<param name="menu" value="true">
+      	<param name="devicefont" value="false">
+      	<param name="salign" value="">
+      	<param name="allowScriptAccess" value="always">
+      	<param name="allowFullScreen" value="true">
+      	<param name="allowFullScreenInteractive" value="true">
+      	<embed src="http://r.playerio.com/r/everybody-edits-su9rn58o40itdbnw69plyw/freegame.swf" width="850px" height="500px" quality="high" bgcolor="#000000" allowFullScreen="true" allowFullScreenInteractive="true" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="direct">
+    	</object>
+    	<br>
+		</div>
+
+		<!--// BLOG //-->
+		<div class="jumbotron blog dark">
+			<div class="container">
+				<div id="BlogFeed">
+					<div id="title"></div>
+					<div id="date" style="font-style:italic"></div>
+					<div id="post"></div>
+					<div id="alert"></div>
+				</div>
+				<a id='more' class='visible' onClick='showFeed'>
+					Show More
+				</a>
+				<a id='less' class='hidden' onClick='showFeed'>
+					Show Less
+				</a>
+			</div>
+		</div>
+
+		<!--// BUILD //-->
+		<div class="jumbotron build light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<img src="#">
+					</div>
+					<div class="col-md-7">
+						<h2>
+							Build With Your Friends
+						</h2>
+						<p>
+							In this live, multiplayer platform game, you can build levels for your friends, or with them! Players can own an unlimited number of worlds, and can let anyone else in the game edit them. With over 600 different blocks, and more being constantly added, you have endless possibilities. The game has no real purpose, acting more as a sandbox, and giving players even more room for creativity.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// BETA //-->
+		<div class="jumbotron beta dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<h2>
+							Beta Membership
+						</h2>
+						<p>
+							Become a beta member and gain access to certain features before anyone else! With beta membership, you not only get to test updates, but you will earn access to six beta only smileys, and nine beta only blocks. On top of that, you will also be given a massive world, and beta only world which can only be accessed by other beta members!
+						</p>
+					</div>
+					<div class="col-md-5">
+						<img src="#">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// GOLD //-->
+		<div class="jumbotron gold light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<img src="imgs/gold_membership.png">
+					</div>
+					<div class="col-md-7">
+						<h2>
+							Gold Membership
+						</h2>
+						<p>
+							Gold membership is all about looks. With gold membership you get to deck out your entire account in gold. When you purchase gold membership, you given an exclusive gold block pack and sign and four exclusive gold smileys! Not enough? You will also gain access to the gold aura, golden smiley borders, and a golden face plate for your profile and lobby!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// LINKS //-->
+		<div class="jumbotron links dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h3>
+							USEFUL LINKS
+						</h3>
+						<ul style="list-style-type:none; padding:0">
+							<li>
+								<a href="http://everybodyedits.com/help" target="_blank">
+									Help Page
+								</a>
+							</li>
+							<li>
+								<a href="http://everybodyedits.com/rules" target="_blank">
+									Rule List
+								</a>
+							</li>
+							<li>
+								<a href="http://everybodyedits.com/faq" target="_blank">
+									FAQs
+								</a>
+							</li>
+							<li>
+								<a href="http://everybodyedits.com/EverybodyEdits.exe" target="_blank">
+									Download EXE
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h3>
+							STUFF WE LIKE
+						</h3>
+						<ul style="list-style-type:none; padding:0">
+							<li>
+								<a href="http://ee.yonom.org/" target="_blank">
+									Profile Stats
+								</a>
+							</li>
+							<li>
+								<a href="http://wiki.everybodyedits.com/" target="_blank">
+									EE Wiki
+								</a>
+							</li>
+							<li>
+								<a href="http://old.everybodyedits.com/" target="_blank">
+									Flixel Walker: Old EE
+								</a>
+							</li>
+							<li>
+								<a href="http://beta.everybodyedits.com/" target="_blank">
+									Beta Page
+								</a>
+							</li>
+							<li>
+								<a href="http://minimal.everybodyedits.com/" target="_blank">
+									Minimal Page
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h3>
+							SOCIAL PAGES
+						</h3>
+						<ul style="list-style-type:none; padding:0">
+							<li>
+								<a href="https://www.facebook.com/OfficialEverybodyEdits" target="_blank">
+									Facebook
+								</a>
+							</li>
+							<li>
+								<a href="http://twitter.com/EverybodyEdits" target="_blank">
+									Twitter
+								</a>
+							</li>
+							<li>
+								<a href="http://www.youtube.com/c/EverybodyEditsOfficial" target="_blank">
+									Youtube
+								</a>
+							</li>
+							<li>
+								<a href="http://blog.everybodyedits.com/" target="_blank">
+									Official Blog
+								</a>
+							</li>
+							<li>
+								<a href="http://forums.everybodyedits.com/" target="_blank">
+									Official Forum
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// FOOTER //-->
+		<footer class="background jumbotron" style="padding-top:35px; padding-bottom:35px">
+			<p style="margin-bottom:0">
+				&copy; Copyright 2015 Everybody Edits Team
+			</p>
+		</footer>
+
+		<!--// SCRIPTS //-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/settings.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="js/blogfeed.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
+</html>
